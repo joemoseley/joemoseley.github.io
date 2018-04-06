@@ -1,0 +1,163 @@
+
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro');
+
+@import url('https://use.typekit.net/qkv2zui.css');
+
+h1 {
+  margin: 0;
+  text-align: center;
+}
+a:link {
+  text-decoration: none;
+  color: white;
+}
+a:active {
+  text-decoration: none;
+  color: white;
+}
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+a:hover {
+  text-decoration: underline;
+  color: #F6E47F;
+}
+header a:link {
+  text-decoration: none;
+  color: black;
+}
+header a:visited {
+  text-decoration: none;
+  color: black;
+}
+header a:hover {
+  text-decoration: underline;
+  color: #F6E47F;
+}
+footer {
+  grid-row: 5/6;
+  grid-column: 1/3;
+  position: relative;
+}
+footer img {
+  display: block;
+  height: 200px;
+  width: auto;
+  margin: auto;
+}
+.container {
+  max-width: 960px;
+  position: relative;
+  background-color: #E4EBEB;
+  margin: 40px auto 20px auto
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 200px 50px 400px 400px 200px;
+  grid-gap: 20px;
+}
+
+#header {
+  grid-column: 1/3;
+  /*background-color: #2A3643;*/
+  font-family: "acumin-pro-semi-condensed";
+  color: black;
+  font-style: italic;
+  font-weight: 900;
+  /*background-color: #DE7895;*/
+}
+#header p {
+  text-align: center;
+  margin: 5px 0 0 0;
+}
+#nav {
+  grid-row: 2/3;
+  grid-column: 1/3;
+  text-align: center;
+}
+#nav p {
+  display: inline;
+  background-color: #99100E;
+  font-family: "acumin-pro-semi-condensed";
+  font-style: italic;
+  font-size: 30pt;
+  font-weight: 900;
+  padding: 0 15px 0 15px;
+  margin: 0;
+}
+#experience {
+  grid-row: 3/5;
+  grid-column: 1/2;
+  background-color: #5FB1BE;
+  font-family: "acumin-pro-semi-condensed";
+  color: #FFFDFD;
+}
+#experience h2 {
+  font-style: italic;
+  font-weight: 900;
+  text-align: center;
+  font-size: 30pt;
+  margin: 5px;
+}
+#experience h3 {
+  font-size: 20pt;
+  font-style: italic;
+  font-weight: 800;
+  margin: 5px;
+}
+#experience h4 {
+  font-style: italic;
+  margin: 0 5px 0 5px;
+}
+#experience p {
+  margin: 10px 5px 10px 5px;
+  font-family: 'Source Sans Pro';
+}
+#education {
+  grid-row: 3/4;
+  grid-column: 2/3;
+  background-color: #2B7C6E;
+  font-family: "acumin-pro-semi-condensed";
+  color: #FFFDFD;
+}
+#education h2 {
+  font-style: italic;
+  font-weight: 900;
+  text-align: center;
+  font-size: 30pt;
+  margin: 5px;
+}
+#education h3 {
+  font-size: 20pt;
+  font-style: italic;
+  font-weight: 800;
+  margin: 5px;
+}
+#education h4 {
+  font-style: italic;
+  margin: 0 5px 0 5px;
+}
+#education p {
+    margin: 10px 5px 10px 5px;
+    font-family: 'Source Sans Pro';
+}
+#skills {
+  grid-row: 4/5;
+  grid-column: 2/3;
+  background-color: #2B7C6E;
+  font-family: "acumin-pro-semi-condensed";
+  color: #FFFDFD;
+}
+#skills h2 {
+  font-style: italic;
+  font-weight: 900;
+  text-align: center;
+  font-size: 30pt;
+  margin: 5px;
+}
+#skills p {
+  margin: 10px 5px 10px 5px;
+  font-family: 'Source Sans Pro';
+}
