@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Exercise Portfolio</title>
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <header>
+      <!-- ADD YOUR NAME -->
+      <h1>JOSEPH MOSELEY: Exercise Portfolio</h1>
+    </header>
+
+    <div id="content">
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Return to Main Page</a></li>
+        </ul>
+      </nav>
+
+      <main>
+
+        <h2>NFL Rushing Statistics 2018</h2>
+
+        <p>This scatterplot shows statistics for NFL RBs with at least 150 carries in the 2018 season. The area of the circle indicated the number of fumbles committed by the RB. If the circle is red, the RB had 0 fumbles.</p>
+
+        <!-- ADD YOUR VISUALIZATION HERE -->
+
+      </main>
+    </div>
+
+    <script src="js/d3.min.js"></script>
+    <script>
+    //var margin = {top: 20, right: 20, bottom: 50, left: 70};
+			var h = 1000
+			var w = 1000
+			var p = 100;
+			d3.csv("data/nfl-rushing.csv").then(function(data) {
+				var svg = d3.select("body").append("svg");
+				var xScale = d3.scaleLinear()
+										 .domain([0,d3.max(data,function(d) {
+										   return +d.Yds;
+										 })])
+											 .range([p,w-p]);
+				var yScale = d3.scaleLinear()
+										 .domain([0,d3.max(data,function(d) {
+											 return +d.TD;
+										 })])
+										 .range([w-p,p]);
+				var fScale = d3.scaleLinear()
+										 .domain([0,d3.max(data,function(d) {
+											 return +d.FUM;
+										 })])
+										 .range([3,15]);
+				svg.attr("width",w).attr("height",h);
+				svg.selectAll("circle")
+					 .data(data)
+					 .enter()
+					 .append("circle")
+					 .attr("cx", function(d) {
+						 return xScale(+d.Yds);
+					 })
+					 .attr("cy", function(d) {
+						 return yScale(+d.TD);
+					 })
+					 .attr("r", function(d) {
+						 return fScale(+d.FUM);
+					 })
+					 .attr("fill", function(d) {
+						 if(+d.FUM > 0){return "blue"}
+						 else {return "red"}
+					 })
+					 .style("fill-opacity", function(d) {
+						 if (+d.Att >= 150){return 1}
+						 else{return 0}
+					 });
+				var xAxis = d3.axisBottom()
+											.scale(xScale)
+											.ticks(20);
+				svg.append("g")
+					 .attr("class", "x-axis")
+					 //.attr("transform", "translate(0," + h + ")")
+					 .attr("transform", "translate(0,910)")
+					 .call(xAxis);
+			  var yAxis = d3.axisLeft()
+											.scale(yScale)
+											.ticks(20);
+				svg.append("g")
+					 .attr("class", "y-axis")
+					 .attr("transform", "translate(100,0)")
+					 .call(yAxis);
+				svg.append("text")
+					 .text("NFL Rushing Statistics 2018")
+					 .attr("transform", "translate(500,50)");
+			  svg.append("text")
+           .text("Yards")
+					 .attr("transform", "translate(500,960)");
+				svg.append("text")
+				   .text("Touchdowns")
+					 .attr("text-anchor", "middle")
+           .attr("transform", "translate(50,500)rotate(-90)")
+
+			});
+
+    </script>
+  </body>
+</html>
